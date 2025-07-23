@@ -3,6 +3,8 @@ import os
 import faiss
 import numpy as np
 import json
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from sentence_transformers import SentenceTransformer
 from llm_interface.query_ollama import query_ollama
 

@@ -1,4 +1,4 @@
-PyMuPDF==1.22.3
+PyMuPDF==1.22.5
 sentence-transformers
 psycopg2-binary
 python-dotenv

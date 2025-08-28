@@ -7,7 +7,7 @@ import json
 
 from sentence_transformers import SentenceTransformer
 from llm_interface.query_ollama import query_ollama
-from scripts.extract_pdf import extract_text_from_pdf  # ✅ tu dois avoir cette fonction dispo
+from scripts.extract_pdf import extract_text_from_pdf  
 import uuid
 
 app = Flask(__name__)
@@ -15,13 +15,13 @@ UPLOAD_FOLDER = "data"
 ALLOWED_EXTENSIONS = {"pdf"}
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# ✅ Utilitaires
+#  Utilitaires
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
-# ✅ Route 1 — Upload PDF
+#  Route 1 — Upload PDF
 @app.route("/upload", methods=["POST"])
 def upload_pdf():
     if "file" not in request.files:
@@ -52,10 +52,10 @@ def upload_pdf():
         with open("db/faiss_index/chunks.json", "w", encoding="utf-8") as f:
             json.dump(chunks, f)
 
-        return jsonify({"message": "✅ PDF traité avec succès"}), 200
+        return jsonify({"message": " PDF traité avec succès"}), 200
     return jsonify({"error": "Fichier non supporté"}), 400
 
-# ✅ Route 2 — Poser une question
+#  Route 2 — Poser une question
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json()

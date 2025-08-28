@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./App.css";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -6,6 +7,8 @@ function App() {
   const [answer, setAnswer] = useState("");
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [loadingAnswer, setLoadingAnswer] = useState(false);
+
+  const BACKEND_URL = "http://127.0.0.1:5050";
 
   const uploadPDF = async () => {
     if (!file) return alert("Choisis un fichier PDF à uploader");
@@ -15,7 +18,7 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("/upload", {  // adapte si tu as changé la route
+      const res = await fetch(`${BACKEND_URL}/upload`, {
         method: "POST",
         body: formData,
       });
@@ -33,7 +36,7 @@ function App() {
     setLoadingAnswer(true);
 
     try {
-      const res = await fetch("/ask", {  // adapte si tu as changé la route
+      const res = await fetch(`${BACKEND_URL}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
@@ -48,10 +51,11 @@ function App() {
   };
 
   return (
-    <div style={{ maxWidth: 600, margin: "auto", padding: 20, fontFamily: "Arial, sans-serif" }}>
-      <h1>SmartPDF Chatbot</h1>
+    <div className="container">
+      <h1> Saad's SmartPDF Chatbot</h1>
 
-      <section>
+      {/* Upload Section */}
+      <div className="card">
         <h2>Uploader un PDF</h2>
         <input
           type="file"
@@ -59,41 +63,29 @@ function App() {
           onChange={(e) => setFile(e.target.files[0])}
           disabled={loadingUpload}
         />
-        <button onClick={uploadPDF} disabled={loadingUpload} style={{ marginLeft: 10 }}>
+        <button onClick={uploadPDF} disabled={loadingUpload}>
           {loadingUpload ? "Upload en cours..." : "Uploader"}
         </button>
-      </section>
+      </div>
 
-      <hr style={{ margin: "30px 0" }} />
-
-      <section>
+      {/* Question Section */}
+      <div className="card">
         <h2>Poser une question</h2>
         <textarea
           rows={4}
-          style={{ width: "100%" }}
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
           placeholder="Tape ta question ici..."
           disabled={loadingAnswer}
         />
-        <button onClick={askQuestion} disabled={loadingAnswer || !question.trim()} style={{ marginTop: 10 }}>
+        <button onClick={askQuestion} disabled={loadingAnswer || !question.trim()}>
           {loadingAnswer ? "En cours..." : "Envoyer"}
         </button>
 
-        <div
-          style={{
-            marginTop: 20,
-            minHeight: 100,
-            whiteSpace: "pre-wrap",
-            backgroundColor: "#f0f0f0",
-            padding: 10,
-            borderRadius: 5,
-            border: "1px solid #ccc",
-          }}
-        >
-          {answer || "La réponse s’affichera ici..."}
+        <div className="response">
+          {answer || "La réponse s’affichera ici:"}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -37,4 +37,4 @@ for text, embed in zip(chunks, embeddings):
 conn.commit()
 cursor.close()
 conn.close()
-print("✅ Données insérées dans PostgreSQL")
+print(" Données insérées dans PostgreSQL")

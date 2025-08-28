@@ -21,7 +21,6 @@ def load_chunks(mapping_path=CHUNKS_MAPPING_PATH):
         return json.load(f)
 
 def embed_query(query, model):
-    # On utilise la même méthode d'embedding que dans embed_text.py
     # Pour simplifier, on utilise ici sentence-transformers aussi
     from sentence_transformers import SentenceTransformer
     model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -35,7 +34,7 @@ def main():
     print("Modèle d'embedding chargé (all-MiniLM-L6-v2)")
 
     while True:
-        query = input("\n💬 Pose ta question (exit pour quitter) :\n> ")
+        query = input("\n Pose ta question (exit pour quitter) :\n> ")
         if query.strip().lower() == "exit":
             print("Au revoir 👋")
             break
@@ -56,10 +55,10 @@ def main():
             + f"\n\nQuestion : {query}\nRéponse :"
         )
 
-        print("\n🧠 Envoi au modèle Ollama...\n")
+        print("\nEnvoi au modèle Ollama...\n")
         try:
             response = query_ollama(prompt)
-            print(f"🧠 Réponse :\n\n{response}")
+            print(f" Réponse :\n\n{response}")
         except Exception as e:
             print(f"Erreur LLM: {e}")
 

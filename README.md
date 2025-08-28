@@ -45,7 +45,7 @@ smartpdf-chatbot/
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/smartpdf-chatbot.git
+   git clone https://github.com/Saadix-1/smartpdf-chatbot.git
    cd smartpdf-chatbot
    ```
 

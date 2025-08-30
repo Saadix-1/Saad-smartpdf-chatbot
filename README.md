@@ -22,8 +22,6 @@
 - **Large Language Model Integration**: Employs GPT-based models for generating intelligent responses.
 - **Database Integration**: Stores metadata and embeddings in PostgreSQL for persistence.
 - **Web Interface**: User-friendly frontend built with React for uploading PDFs and interacting with the chatbot.
-- **Automation**: Integrated with `n8n` for workflow automation.
-- **Cloud Deployment**: Fully deployed on Heroku for easy access.
 
 ---
 ##  **Getting Started**

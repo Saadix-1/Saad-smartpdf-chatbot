@@ -1,22 +1,117 @@
-# Saad's SmartPDF Chatbot
+# ** Saad's Smart PDF Chatbot**
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow?logo=javascript&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.0%2B-blue?logo=flask&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.85%2B-green?logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18.0%2B-blue?logo=react&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-Search-orange?logo=apache&logoColor=white)
+![PyMuPDF](https://img.shields.io/badge/PyMuPDF-1.20%2B-red?logo=adobe&logoColor=white)
+![SentenceTransformers](https://img.shields.io/badge/SentenceTransformers-2.2%2B-blueviolet?logo=huggingface&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-13%2B-blue?logo=postgresql&logoColor=white)
+---
 
-Saad's SmartPDF Chatbot is a local AI-powered assistant that lets you interact with your PDF documents through natural language queries. It uses **Ollama** to run the LLM locally, combined with **FAISS** for semantic search over document embeddings. This makes it fully private, fast, and independent from cloud services.
+ **Smart PDF Chatbot** is an intelligent chatbot application that leverages advanced NLP techniques and large language models (LLMs) to interact with users based on the content of uploaded PDF documents. It uses **Ollama** to run the LLM locally. This project demonstrates expertise in modern AI, backend development, and deployment, making it a great showcase for your skills.
 
-## Features
+---
 
-* **Local AI**: Runs entirely on your machine with Ollama, ensuring privacy and no external dependencies.
-* **PDF Understanding**: Extracts and processes PDF text for efficient semantic search.
-* **Vector Search**: Uses FAISS to store and retrieve embeddings for accurate, context-aware answers.
-* **Natural Interaction**: Query your documents in plain English and receive clear, concise responses.
-* **Lightweight & Modular**: Simple Python scripts, easy to adapt for other use cases.
 
-## Tech Stack
+## **Features**
 
-* **Python**
-* **FAISS** (vector database for embeddings)
-* **PyMuPDF** (PDF text extraction)
-* **Ollama** (local LLM engine)
-* **Flask** (API layer for queries)
+- **PDF Content Extraction**: Extracts and processes text from uploaded PDF files using `PyMuPDF`.
+- **Semantic Search**: Uses `FAISS` for efficient similarity search on document embeddings.
+- **Large Language Model Integration**: Employs GPT-based models for generating intelligent responses.
+- **Database Integration**: Stores metadata and embeddings in PostgreSQL for persistence.
+- **Web Interface**: User-friendly frontend built with React for uploading PDFs and interacting with the chatbot.
+- **Automation**: Integrated with `n8n` for workflow automation.
+- **Cloud Deployment**: Fully deployed on Heroku for easy access.
+
+---
+##  **Getting Started**
+
+### **Prerequisites**
+- Python 3.8+
+- Node.js 16+
+- PostgreSQL
+- Heroku CLI (for deployment)
+
+##  **Technologies Used**
+
+### **Backend**
+- **Flask** or **FastAPI**: For building the REST API.
+- **FAISS**: For fast similarity search on embeddings.
+- **PyMuPDF**: For extracting text from PDFs.
+- **SentenceTransformers**: For generating embeddings from text.
+- **PostgreSQL**: For storing metadata and embeddings.
+
+### **Frontend**
+- **React**: For building the web interface.
+- **Axios**: For making API calls to the backend.
+
+## 📂 **Project Structure**
+
+```
+smart-pdf-chatbot/
+├── backend/
+│   ├── app.py               # Flask/FastAPI app
+│   ├── utils/
+│   │   ├── pdf_extractor.py # Extracts text from PDFs
+│   │   ├── embeddings.py    # Generates and saves embeddings
+│   │   ├── faiss_index.py   # FAISS index operations
+│   │   ├── database.py      # PostgreSQL integration
+│   └── requirements.txt     # Backend dependencies
+├── frontend/
+│   ├── src/
+│   │   ├── App.js           # Main React component
+│   │   ├── components/      # React components
+│   ├── package.json         # Frontend dependencies
+├── workflows/
+│   ├── n8n_workflows.json   # Automation workflows
+├── Procfile                 # Heroku deployment configuration
+├── README.md                # Project documentation
+```
+
+---
+
+
+
+### **Backend Setup**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Saadix-1/smart-pdf-chatbot.git
+   cd smart-pdf-chatbot/backend
+   ```
+2. Create a virtual environment and install dependencies:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+3. Set up environment variables for PostgreSQL:
+   ```bash
+   export DATABASE_URL=postgresql://username:password@localhost/dbname
+   ```
+4. Run the backend server:
+   ```bash
+   python app.py
+   ```
+
+### **Frontend Setup**
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+---
 
 ## Demo
 
@@ -25,81 +120,67 @@ Saad's SmartPDF Chatbot is a local AI-powered assistant that lets you interact w
 <img width="1508" height="863" alt="Screenshot 2025-08-28 at 23 09 02" src="https://github.com/user-attachments/assets/9fa16e4f-370f-47fd-9b0d-a057f4290e7f" />
 
 
+## 🧪 **Testing**
 
-## Project Structure
+### **Backend Tests**
+- Add unit tests for PDF extraction, embedding generation, and FAISS operations.
+- Run tests using `pytest`:
+  ```bash
+  pytest
+  ```
 
-```
-smartpdf-chatbot/
-│
-├── scripts/
-│   ├── embed_text.py      # Create embeddings from PDFs
-│   ├── query_engine.py    # Query the FAISS index using Ollama
-│
-├── app.py                 # Flask API for local interaction
-├── requirements.txt       # Dependencies
-└── README.md              # Project documentation
-```
+### **Frontend Tests**
+- Includes a basic test suite for React components using `@testing-library/react`.
+- Run tests:
+  ```bash
+  npm test
+  ```
+---
 
-## Installation & Setup
+##  **Key Functionalities**
 
-1. Clone the repository:
+### **1. PDF Content Extraction**
+- Extracts text from PDFs using `PyMuPDF`.
+- Preprocesses text for embedding generation.
 
-   ```bash
-   git clone https://github.com/Saadix-1/smartpdf-chatbot.git
-   cd smartpdf-chatbot
-   ```
+### **2. Embedding Generation**
+- Generates embeddings for text chunks using `SentenceTransformers`.
+- Stores embeddings in a FAISS index for efficient similarity search.
 
-2. Create a virtual environment and install dependencies:
+### **3. Chatbot Query**
+- Accepts user queries and retrieves relevant text chunks using FAISS.
+- Sends the retrieved text to the GPT-based LLM for generating responses.
 
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
+### **4. Web Interface**
+- Allows users to upload PDFs and interact with the chatbot.
+- Displays chatbot responses in a user-friendly format.
 
-3. Run the embedding script on your PDF:
 
-   ```bash
-   python scripts/embed_text.py your_file.pdf
-   ```
+##  **Why This Project Stands Out**
 
-4. Start querying your PDF:
-
-   ```bash
-   python scripts/query_engine.py "Summarize this PDF"
-   ```
-
-5. (Optional) Launch the Flask API:
-
-   ```bash
-   python app.py
-   ```
-
-## Why This Project Matters
-
-* Demonstrates skills in **LLM integration**, **vector databases**, and **backend APIs**.
-* Showcases ability to build **practical AI tools** with focus on **privacy** and **local-first architecture**.
-* Relevant to roles in **AI engineering**, **software development**, and **data-driven applications**.
+- **End-to-End Solution**: Combines backend, frontend, and automation into a cohesive application.
+- **Modern AI Techniques**: Demonstrates expertise in NLP, embeddings, and LLMs.
+- **Scalable Architecture**: Designed with modularity and scalability in mind.
+- **Cloud Deployment**: Fully deployed and accessible online.
 
 ---
 ## Future Improvements
 
 * Support for multiple file formats (DOCX, TXT).
 * Advanced UI features such as chat history and multi-file search.
-* Deployment on cloud platforms (Heroku, AWS, etc.).
+* Deployment on cloud platforms (Heroku, AWS, etc.)
+* Automation using n8n .
 
 ## License
 
 This project is licensed under the MIT License.
+## 🤝 **Contributing**
+
+Contributions are welcome! If you have ideas for improving this project, feel free to fork the repository and submit a pull request.
 
 ---
 
 
-        
-   
-   
-      
-  
    
         
   

@@ -33,7 +33,7 @@
 - Heroku CLI (for deployment)
 
 ##  **Technologies Used**
-
+ 
 ### **Backend**
 - **Flask** or **FastAPI**: For building the REST API.
 - **FAISS**: For fast similarity search on embeddings.

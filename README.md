@@ -7,6 +7,7 @@
 ![Pinecone](https://img.shields.io/badge/Pinecone-VectorDB-blueviolet?logo=database&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI-GPT_3.5_&_Embeddings-green?logo=openai&logoColor=white)
 ![PyMuPDF](https://img.shields.io/badge/PyMuPDF-1.20%2B-red?logo=adobe&logoColor=white)
+<img width="1512" height="855" alt="Screenshot 2026-03-04 at 14 38 35" src="https://github.com/user-attachments/assets/97999caf-c238-4162-ac37-c78238654b3e" />
 
 ---
 
@@ -118,8 +119,6 @@ To run Saad AI locally, you will need active API keys from the respective cloud 
 4. Open your browser and navigate to `http://localhost:5173`. You can now upload PDFs and interact with Saad AI!
 
 ---
-## Demo
-<img width="1512" height="855" alt="Screenshot 2026-03-04 at 14 38 35" src="https://github.com/user-attachments/assets/97999caf-c238-4162-ac37-c78238654b3e" />
 
 ##  **Deployment in the Cloud**
 

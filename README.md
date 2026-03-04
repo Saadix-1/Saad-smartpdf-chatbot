@@ -119,7 +119,7 @@ To run Saad AI locally, you will need active API keys from the respective cloud 
 
 ---
 ## Demo
-<img width="1512" height="855" alt="Screenshot 2026-03-04 at 14 27 22" src="https://github.com/user-attachments/assets/73a077cd-f373-49aa-90c8-75a62286b412" />
+<img width="1512" height="855" alt="Screenshot 2026-03-04 at 14 38 35" src="https://github.com/user-attachments/assets/97999caf-c238-4162-ac37-c78238654b3e" />
 
 ##  **Deployment in the Cloud**
 

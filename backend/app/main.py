@@ -27,7 +27,7 @@ def health():
     return {"message": "Saad AI Backend is running"}
 
 # Serve React frontend static files (if dist folder exists)
-static_dir = os.path.join(os.path.dirname(__file__), "../../frontend_dist")
+static_dir = os.path.join(os.path.dirname(__file__), "../frontend_dist")
 if os.path.exists(static_dir):
     app.mount("/assets", StaticFiles(directory=os.path.join(static_dir, "assets")), name="assets")
 

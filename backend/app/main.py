@@ -11,7 +11,10 @@ app = FastAPI(
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Allow all for simplicity in dev, specific origins in prod
+    allow_origins=[
+        "https://d2ehw7ojcpifbu.cloudfront.net",
+        "http://localhost:5173",  # local dev
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -8,6 +8,8 @@ interface Message {
     content: string;
 }
 
+const API_BASE = import.meta.env.VITE_API_URL || '';
+
 function App() {
     const [file, setFile] = useState<File | null>(null);
     const [uploadedFiles, setUploadedFiles] = useState<string[]>([]);
@@ -36,7 +38,7 @@ function App() {
         formData.append("file", file);
 
         try {
-            await axios.post("/api/v1/upload", formData, {
+            await axios.post(`${API_BASE}/api/v1/upload`, formData, {
                 headers: { "Content-Type": "multipart/form-data" },
             });
             setUploadedFiles(prev => [...prev, file.name]);
@@ -59,7 +61,7 @@ function App() {
         setLoading(true);
 
         try {
-            const res = await axios.post("/api/v1/chat", { question: input });
+            const res = await axios.post(`${API_BASE}/api/v1/chat`, { question: input });
             const botMessage: Message = { role: "bot", content: res.data.response };
             setMessages(prev => [...prev, botMessage]);
         } catch (error) {

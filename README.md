@@ -26,7 +26,7 @@ Re-architected from local LLMs to a fully cloud-native deployment model using **
 - **Managed Vector Database:** Uses **Pinecone** for fast and reliable semantic similarity search without maintaining local FAISS indices.
 - **State-of-the-Art LLMs:** Powered by OpenAI's `gpt-3.5-turbo` for intelligent responses and `text-embedding-3-small` for dense vector embeddings.
 - **Modern React Frontend:** A sleek, responsive UI built with **React 18**, **Vite**, and **Tailwind CSS** for a fluid, real-time chat experience.
-- **Production Deployment on AWS:** Frontend served via **AWS CloudFront** CDN; backend running on an **AWS EC2** instance inside a Docker container.
+- **Production Deployment on AWS:** Frontend served via **AWS CloudFront** CDN; backend running on an **AWS EC2** instance inside a Docker container. 
 
 ---
 

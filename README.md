@@ -1,52 +1,68 @@
-# Saad AI (Smart PDF Chatbot)
-![Python](https://img.shields.io/badge/Python-3.13%2B-blue?logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-ES6%2B-blue?logo=typescript&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-green?logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18.0%2B-blue?logo=react&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-5.0%2B-purple?logo=vite&logoColor=white)
-![Pinecone](https://img.shields.io/badge/Pinecone-VectorDB-blueviolet?logo=database&logoColor=white)
-![OpenAI](https://img.shields.io/badge/OpenAI-GPT_3.5_&_Embeddings-green?logo=openai&logoColor=white)
-![PyMuPDF](https://img.shields.io/badge/PyMuPDF-1.20%2B-red?logo=adobe&logoColor=white)
-<img width="1512" height="855" alt="Screenshot 2026-03-04 at 14 38 35" src="https://github.com/user-attachments/assets/97999caf-c238-4162-ac37-c78238654b3e" />
+# Saad AI — Smart PDF Chatbot
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Pinecone](https://img.shields.io/badge/Pinecone-000000?style=for-the-badge&logo=pinecone&logoColor=white)
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+
+> **🚀 Live Demo:** [https://d2ehw7ojcpifbu.cloudfront.net/](https://d2ehw7ojcpifbu.cloudfront.net/)
 
 ---
 
-**Saad AI** is a modernized, cloud-native chatbot application that leverages advanced NLP techniques and large language models (LLMs) to interact with users based on the content of uploaded PDF documents. 
+**Saad AI** is a cloud-native, RAG-based chatbot application that leverages advanced NLP techniques and large language models (LLMs) to let users upload any PDF document and interact with its content through a natural-language interface.
 
-Re-architected from local LLMs to a fully stateless cloud deployment model using **OpenAI** and **Pinecone**, this project demonstrates expertise in building scalable, enterprise-ready AI backends and modern React frontends.
-
----
-
-## **Features**
-
-- **Cloud-Native & Stateless Processing**: Extracts and processes text from uploaded PDF files directly via memory streams. No local disk persistence is required, meaning it operates perfectly on serverless infrastructure like Google Cloud Run or AWS Fargate.
-- **Managed Vector Database**: Uses **Pinecone** for extremely fast and reliable similarity search on document embeddings without the overhead of maintaining local FAISS indices.
-- **State-of-the-Art LLMs**: Employs OpenAI's `gpt-3.5-turbo` for generating intelligent responses, and `text-embedding-3-small` for generating highly accurate dense vector embeddings.
-- **Fast Web Interface**: A sleek, user-friendly frontend built with React, Vite, and Tailwind CSS for instant answers and fluid interactions.
+Re-architected from local LLMs to a fully cloud-native deployment model using **OpenAI** and **Pinecone**, this project demonstrates expertise in building scalable, enterprise-ready AI backends and modern React frontends — deployed end-to-end on **AWS** (EC2 + CloudFront).
 
 ---
 
-## **Technologies Used**
- 
-### **Backend**
-- **FastAPI**: For building the lightning-fast asynchronous REST API.
-- **Pinecone**: Managed vector database for semantic search.
-- **OpenAI API**: For semantic embeddings and LLM chat completions.
-- **PyMuPDF (`fitz`)**: For rapid, highly accurate text extraction from PDFs.
+## ✨ Features
 
-### **Frontend**
-- **React 18 & Vite**: High-performance frontend rendering framework and dev server.
-- **Tailwind CSS**: For crafting a rich, dynamic, and responsive aesthetic.
-- **Lucide Icons**: Crisp, SVG-based interface iconography.
+- **RAG Pipeline (Retrieval-Augmented Generation):** Extracts text from PDFs, embeds it into a Pinecone vector index, and retrieves the most relevant chunks at query time for accurate, context-aware responses.
+- **Cloud-Native & Stateless Processing:** Processes uploaded PDF files directly via memory streams — no local disk persistence required, making it portable across any containerized infrastructure.
+- **Managed Vector Database:** Uses **Pinecone** for fast and reliable semantic similarity search without maintaining local FAISS indices.
+- **State-of-the-Art LLMs:** Powered by OpenAI's `gpt-3.5-turbo` for intelligent responses and `text-embedding-3-small` for dense vector embeddings.
+- **Modern React Frontend:** A sleek, responsive UI built with **React 18**, **Vite**, and **Tailwind CSS** for a fluid, real-time chat experience.
+- **Production Deployment on AWS:** Frontend served via **AWS CloudFront** CDN; backend running on an **AWS EC2** instance inside a Docker container.
 
 ---
 
-## 📂 **Project Structure**
+## 🛠️ Technologies Used
+
+### Backend
+| Technology | Purpose |
+|---|---|
+| **FastAPI** | Asynchronous REST API framework |
+| **Pinecone** | Managed vector database for semantic search |
+| **OpenAI API** | Embeddings (`text-embedding-3-small`) & chat (`gpt-3.5-turbo`) |
+| **PyMuPDF (fitz)** | Rapid, accurate PDF text extraction |
+| **Docker** | Containerized deployment |
+
+### Frontend
+| Technology | Purpose |
+|---|---|
+| **React 18 & Vite** | High-performance UI and dev tooling |
+| **Tailwind CSS** | Utility-first responsive styling |
+| **Lucide Icons** | SVG-based interface iconography |
+
+### Cloud Infrastructure
+| Service | Role |
+|---|---|
+| **AWS EC2** | Hosts the FastAPI backend Docker container |
+| **AWS CloudFront** | CDN serving the React frontend globally |
+| **AWS SSM Parameter Store** | Secure secret management for API keys |
+
+---
+
+## 📂 Project Structure
 
 ```
 smartpdf-chatbot/
 ├── backend/
-│   ├── app/                 # FastAPI application and routes
+│   ├── app/
 │   │   ├── main.py          # Application entry point
 │   │   ├── api/             # REST Endpoints (upload, chat)
 │   │   ├── core/            # Configuration and Application State
@@ -57,91 +73,114 @@ smartpdf-chatbot/
 │   ├── src/
 │   │   ├── App.tsx          # Main React web UI interface
 │   │   ├── components/      # Reusable React components
-│   │   ├── index.css        # Global Tailwind CSS definitions
+│   │   └── index.css        # Global Tailwind CSS definitions
 │   ├── package.json         # Node Dependencies
-│   └── vite.config.ts       # React Bundler Configuration
-├── docker-compose.yml       # Stateless container deployment manifest
-├── README.md                # Project documentation
+│   └── vite.config.ts       # Vite Bundler Configuration
+├── docker-compose.yml       # Container deployment manifest
+└── README.md
 ```
 
 ---
 
-##  **Getting Started Locally**
+## 🚀 Getting Started Locally
 
-To run Saad AI locally, you will need active API keys from the respective cloud providers. 
+To run Saad AI locally, you will need active API keys from OpenAI and Pinecone.
 
-### **Prerequisites**
+### Prerequisites
+
 - Node.js v20+
 - Python 3.10+
-- An [OpenAI Developer Account](https://platform.openai.com) & API Key
-- A [Pinecone Account](https://app.pinecone.io) & API Key (Free Tier supported)
+- An [OpenAI](https://platform.openai.com/) Developer Account & API Key
+- A [Pinecone](https://www.pinecone.io/) Account & API Key (Free Tier supported)
 
-### **Backend Setup**
-1. Clone the repository and navigate to the backend:
+### Backend Setup
+
+1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Saadix-1/smartpdf-chatbot.git
-   cd smartpdf-chatbot/backend
+   git clone https://github.com/Saadix-1/Saad-smartpdf-chatbot.git
+   cd Saad-smartpdf-chatbot/backend
    ```
-2. Create your environment configuration file:
+
+2. **Create your environment configuration file:**
    ```bash
-   touch .env
+   cp .env.example .env
    ```
-3. Open the `.env` file and insert your cloud API credentials:
+
+3. **Open `.env` and add your API credentials:**
    ```env
    OPENAI_API_KEY=sk-proj-your_openai_api_key_here
    PINECONE_API_KEY=pcsk_your_pinecone_api_key_here
    PINECONE_INDEX_NAME=smartpdf-index
    ```
-4. Create a virtual environment and install dependencies:
+
+4. **Create a virtual environment and install dependencies:**
    ```bash
    python -m venv venv
    source venv/bin/activate
    pip install -r requirements.txt
    ```
-5. Run the backend server:
+
+5. **Run the backend server:**
    ```bash
    uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
    ```
 
-### **Frontend Setup**
-1. Open a new terminal and navigate to the frontend directory:
+### Frontend Setup
+
+1. **Navigate to the frontend directory:**
    ```bash
-   cd smartpdf-chatbot/frontend
+   cd ../frontend
    ```
-2. Install frontend dependencies:
+
+2. **Install dependencies:**
    ```bash
    npm install
    ```
-3. Start the Vite development server:
+
+3. **Start the Vite dev server:**
    ```bash
    npm run dev
    ```
-4. Open your browser and navigate to `http://localhost:5173`. You can now upload PDFs and interact with Saad AI!
+
+4. Open your browser at [http://localhost:5173](http://localhost:5173). Upload a PDF and start chatting!
 
 ---
 
-##  **Deployment in the Cloud**
+## ☁️ Cloud Deployment (AWS)
 
-Because the application is entirely stateless and does not rely on local SQL databases or persistent mounted volumes, it is exceptionally easy to deploy:
+This project is deployed end-to-end on AWS:
 
-1. **Frontend Hosting (Vercel / Netlify / Firebase)**: Run `npm run build` and deploy the output static assets (`/dist`) directly to any global CDN.
-2. **Backend Hosting (Google Cloud Run / AWS AppRunner)**: Package the backend into a Docker container using the provided `Dockerfile`. Deploy the image as a serverless container, ensuring you pass the `OPENAI_API_KEY` and `PINECONE_API_KEY` configuration variables directly into your cloud provider's secret manager or environment variables.
+### Backend — AWS EC2 + Docker
+- The FastAPI backend is containerized using Docker and runs on an **AWS EC2** instance.
+- API keys are securely injected at runtime using **AWS SSM Parameter Store**.
+- The backend serves both the API and the built frontend static files from a single unified host.
+
+### Frontend — AWS CloudFront
+- The React frontend is built (`npm run build`) and served globally via an **AWS CloudFront** distribution.
+- Live URL: [https://d2ehw7ojcpifbu.cloudfront.net/](https://d2ehw7ojcpifbu.cloudfront.net/)
+
+### Alternative Hosting Options
+- **Frontend:** Deploy `/dist` to Vercel, Netlify, or Firebase Hosting.
+- **Backend:** Package with Docker and deploy to **Google Cloud Run**, **AWS App Runner**, or **AWS Fargate** for serverless container hosting.
 
 ---
 
-##  **Why This Project Stands Out**
+## 💡 Why This Project Stands Out
 
-- **Production-Ready Architecture**: Shifted from local monolithic state to a scalable microservice architecture utilizing managed services.
-- **Stateless Engineering**: Designed with ephemeral disks in mind; PDFs and database connections are handled strictly in memory and over HTTP APIs.
-- **Modern AI Techniques**: Demonstrates expertise building around leading Enterprise models instead of slower local deployments.
-- **Beautiful User Interface**: A bespoke, premium dynamic design using cutting-edge CSS tools.
+- **Production-Ready Architecture:** Shifted from a local monolithic setup to a cloud-native microservice architecture using fully managed services.
+- **Stateless Engineering:** PDFs and embeddings are processed strictly in memory and over APIs — no persistent disk or local database required.
+- **Real AWS Deployment:** Not just a demo — this is a live application deployed end-to-end on AWS infrastructure with proper secret management.
+- **Modern AI Techniques:** Built on leading enterprise-grade models (OpenAI) and managed vector infrastructure (Pinecone), showcasing real-world RAG implementation skills.
+- **Beautiful User Interface:** A bespoke, premium dark-mode UI with fluid animations and responsive design.
 
 ---
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](LICENSE).
 
-## 🤝 **Contributing**
+---
 
-Contributions are welcome! If you have ideas for improving this project, feel free to fork the repository and submit a pull request.
+## 🤝 Contributing
+
+Contributions are welcome! If you have ideas for improvements, feel free to fork the repository and submit a pull request.

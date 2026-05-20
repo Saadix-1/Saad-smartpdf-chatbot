@@ -56,7 +56,7 @@ Re-architected from local LLMs to a fully cloud-native deployment model using **
 | **AWS SSM Parameter Store** | Secure secret management for API keys |
 
 ---
-
+ 
 ## 📂 Project Structure
 
 ```
